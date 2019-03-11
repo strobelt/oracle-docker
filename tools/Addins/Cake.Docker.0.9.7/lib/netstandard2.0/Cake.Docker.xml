@@ -1,0 +1,3719 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cake.Docker</name>
+    </assembly>
+    <members>
+        <member name="T:Cake.Docker.ArgumentsBuilderExtension">
+            <summary>
+            Arguments builder
+            </summary>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.AppendAll``1(Cake.Core.IO.ProcessArgumentBuilder,System.String,``0,System.String[])">
+            <summary>
+            Appends all arguments from <paramref name="settings"/> and <paramref name="arguments"/>.
+            </summary>
+            <typeparam name="TSettings"></typeparam>
+            <param name="builder"></param>
+            <param name="command"></param>
+            <param name="settings">The settings.</param>
+            <param name="arguments"></param>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.AppendArguments``1(Cake.Core.IO.ProcessArgumentBuilder,``0,System.Boolean)">
+            <summary>
+            Appends pre or post command arguments.
+            </summary>
+            <typeparam name="TSettings"></typeparam>
+            <param name="builder"></param>
+            <param name="settings"></param>
+            <param name="preCommand"></param>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromProperty``1(System.Reflection.PropertyInfo,``0,System.Boolean,System.Boolean)">
+            <summary>
+            Gets and processes <paramref name="property"/> value from <paramref name="settings"/>.
+            </summary>
+            <typeparam name="TSettings"></typeparam>
+            <param name="property"></param>
+            <param name="settings">The settings.</param>
+            <param name="preCommand">Pre or post command.</param>
+            <param name="isSecret"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.IsPropertyValueSecret``1(System.Reflection.PropertyInfo,``0)">
+            <summary>
+            Checks out whether given <paramref name="property"/> is a secret.
+            </summary>
+            <typeparam name="TSettings"></typeparam>
+            <param name="property"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromAutoProperty(Cake.Docker.AutoPropertyAttribute,System.Reflection.PropertyInfo,System.Object)">
+            <summary>
+            Uses format specified in attribute to format the argument.
+            </summary>
+            <param name="attribute"></param>
+            <param name="property"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetAutoPropertyAttributeOrNull(System.Reflection.PropertyInfo)">
+            <summary>
+            Retrieve <see cref="T:Cake.Docker.AutoPropertyAttribute"/> from property or null if there isn't one.
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromBoolProperty(System.Reflection.PropertyInfo,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="property"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromNullableIntProperty(System.Reflection.PropertyInfo,System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="property"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromNullableInt64Property(System.Reflection.PropertyInfo,System.Nullable{System.Int64})">
+            <summary>
+            
+            </summary>
+            <param name="property"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromNullableUInt64Property(System.Reflection.PropertyInfo,System.Nullable{System.UInt64})">
+            <summary>
+            
+            </summary>
+            <param name="property"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromNullableUInt16Property(System.Reflection.PropertyInfo,System.Nullable{System.UInt16})">
+            <summary>
+            
+            </summary>
+            <param name="property"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromNullableBoolProperty(System.Reflection.PropertyInfo,System.Nullable{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="property"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromDictionaryProperty(System.Reflection.PropertyInfo,System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="property"></param>
+            <param name="values"></param>
+            <param name="isSecret"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromStringArrayProperty(System.Reflection.PropertyInfo,System.String[],System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="property"></param>
+            <param name="values"></param>
+            <param name="isSecret"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromStringProperty(System.Reflection.PropertyInfo,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="property"></param>
+            <param name="value"></param>
+            <param name="isSecret"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetArgumentFromNullableTimeSpanProperty(System.Reflection.PropertyInfo,System.Nullable{System.TimeSpan})">
+            <summary>
+            
+            </summary>
+            <param name="property"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.ConvertTimeSpan(System.TimeSpan)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.ArgumentsBuilderExtension.GetPropertyName(System.String)">
+            <summary>
+            Converts property name to docker arguments format
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+            <example>NoForce -> no-force</example>
+        </member>
+        <member name="T:Cake.Docker.AutoPropertyAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.AutoPropertyAttribute.Format">
+            <summary>
+            Format of the output, i.e. "-s {1}"
+            where {0} is property name and {1} is value.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.AutoPropertyAttribute.OnlyWhenTrue">
+            <summary>
+            Outputs only when given value is true.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.AutoPropertyAttribute.PreCommand">
+            <summary>
+            Whether it appears before command
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.AutoToolSettings">
+            <summary>
+            Base class for tooling that is used for autogeneration of command line arguments.
+            </summary>
+        </member>
+        <member name="F:Cake.Docker.AutoToolSettings.SecretProperties">
+            <summary>
+            Values of these properties shouldn't be displayed in the output.
+            </summary>
+        </member>
+        <member name="M:Cake.Docker.AutoToolSettings.#ctor">
+            <summary>
+            Initializer. Handles secret properties collection.
+            </summary>
+        </member>
+        <member name="M:Cake.Docker.AutoToolSettings.CollectSecretProperties">
+            <summary>
+            Collects secret properties.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cake.Docker.DockerAliases">
+            <summary>
+            Contains functionality for working with Docker commands.
+            </summary>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeBuild(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Runs docker-compose build with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeBuild(Cake.Core.ICakeContext,Cake.Docker.DockerComposeBuildSettings,System.String[])">
+            <summary>
+            Runs docker-compose build given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeCreate(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Runs docker-compose create with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeCreate(Cake.Core.ICakeContext,Cake.Docker.DockerComposeCreateSettings,System.String[])">
+            <summary>
+            Runs docker-compose create given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeDown(Cake.Core.ICakeContext)">
+            <summary>
+            Runs docker-compose down with default settings.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeDown(Cake.Core.ICakeContext,Cake.Docker.DockerComposeDownSettings)">
+            <summary>
+            Runs docker-compose down given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeExec(Cake.Core.ICakeContext,System.String,System.String,System.String[])">
+            <summary>
+            Runs docker-compose exec with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="service">The service.</param>
+            <param name="command">The command.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeExec(Cake.Core.ICakeContext,Cake.Docker.DockerComposeExecSettings,System.String,System.String,System.String[])">
+            <summary>
+            Runs docker-compose exec given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="service">The service.</param>
+            <param name="command">The command.</param>
+            <param name="args">The arguments.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeKill(Cake.Core.ICakeContext)">
+            <summary>
+            Runs docker-compose kill with default settings.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeKill(Cake.Core.ICakeContext,Cake.Docker.DockerComposeKillSettings)">
+            <summary>
+            Runs docker-compose kill given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeLogs(Cake.Core.ICakeContext)">
+            <summary>
+            Runs docker-compose kill with default settings.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeLogs(Cake.Core.ICakeContext,Cake.Docker.DockerComposeLogsSettings)">
+            <summary>
+            Runs docker-compose kill given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposePause(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Runs docker-compose pause with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposePause(Cake.Core.ICakeContext,Cake.Docker.DockerComposeSettings,System.String[])">
+            <summary>
+            Runs docker-compose pause.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposePull(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Runs docker-compose pull with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposePull(Cake.Core.ICakeContext,Cake.Docker.DockerComposePullSettings,System.String[])">
+            <summary>
+            Runs docker-compose pull given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeRestart(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Runs docker-compose restart with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeRestart(Cake.Core.ICakeContext,Cake.Docker.DockerComposeRestartSettings,System.String[])">
+            <summary>
+            Runs docker-compose restart given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeRm(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Runs docker-compose rm with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeRm(Cake.Core.ICakeContext,Cake.Docker.DockerComposeRmSettings,System.String[])">
+            <summary>
+            Runs docker-compose rm given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeRun(Cake.Core.ICakeContext,System.String,System.String[])">
+            <summary>
+            Runs docker-compose run with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="service">The path.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeRun(Cake.Core.ICakeContext,System.String,System.String,System.String[])">
+            <summary>
+            Runs docker-compose run with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="service">The path.</param>
+            <param name="command">The command.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeRun(Cake.Core.ICakeContext,Cake.Docker.DockerComposeRunSettings,System.String,System.String[])">
+            <summary>
+            Runs docker-compose run given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="service">The path.</param>
+            <param name="args">The arguments.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeRun(Cake.Core.ICakeContext,Cake.Docker.DockerComposeRunSettings,System.String,System.String,System.String[])">
+            <summary>
+            Runs docker-compose run given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="service">The path.</param>
+            /// <param name="command">The command.</param>
+            <param name="args">The arguments.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeScale(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Runs docker-compose scale with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeScale(Cake.Core.ICakeContext,Cake.Docker.DockerComposeSettings,System.String[])">
+            <summary>
+            Runs docker-compose scale.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeStart(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Runs docker-compose start with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeStart(Cake.Core.ICakeContext,Cake.Docker.DockerComposeSettings,System.String[])">
+            <summary>
+            Runs docker-compose start.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeStop(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Runs docker-compose stop with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeStop(Cake.Core.ICakeContext,Cake.Docker.DockerComposeBuildSettings,System.String[])">
+            <summary>
+            Runs docker-compose stop given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeUnpause(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Runs docker-compose unpause with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeUnpause(Cake.Core.ICakeContext,Cake.Docker.DockerComposeSettings,System.String[])">
+            <summary>
+            Runs docker-compose unpause.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeUp(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Runs docker-compose up with default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerComposeUp(Cake.Core.ICakeContext,Cake.Docker.DockerComposeUpSettings,System.String[])">
+            <summary>
+            Runs docker-compose up given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="services">The list of services.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerCp(Cake.Core.ICakeContext,System.String,System.String)">
+            <summary>
+            Copy files from/to using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="from">Source path.</param>
+            <param name="to">Destination path.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerCp(Cake.Core.ICakeContext,System.String,System.String,Cake.Docker.DockerContainerCpSettings)">
+            <summary>
+            Copy files from/to container given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="from">Source path.</param>
+            <param name="to">Destination path.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerCreate(Cake.Core.ICakeContext,System.String,System.String,System.String[])">
+            <summary>
+            Creates a new container using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="image">The image.</param>
+            <param name="args">The arguments.</param>
+            <param name="command">The command.</param>
+            <returns>container ID</returns>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerCreate(Cake.Core.ICakeContext,Cake.Docker.DockerContainerCreateSettings,System.String,System.String,System.String[])">
+            <summary>
+            Creates a new container given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="image">The image.</param>
+            <param name="args">The arguments.</param>
+            <param name="command">The command.</param>
+            <returns>container ID</returns>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerExec(Cake.Core.ICakeContext,System.String,System.String,System.String[])">
+            <summary>
+            Execs a command using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="container">The container</param>
+            <param name="command">The command to execute.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerExec(Cake.Core.ICakeContext,Cake.Docker.DockerContainerExecSettings,System.String,System.String,System.String[])">
+            <summary>
+            Execs a command using given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="container">The container</param>
+            <param name="command">The command to execute.</param>
+            <param name="args">The arguments.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerLogs(Cake.Core.ICakeContext,System.String)">
+            <summary>
+            Logs <paramref name="container"/> using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="container">The list of containers.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerLogs(Cake.Core.ICakeContext,Cake.Docker.DockerContainerLogsSettings,System.String)">
+            <summary>
+            Logs <paramref name="container"/> using the given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="container">The list of containers.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerRm(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Removes an array of <paramref name="containers"/> using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="containers">The list of containers.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerRm(Cake.Core.ICakeContext,Cake.Docker.DockerContainerRmSettings,System.String[])">
+            <summary>
+            Removes an array of <paramref name="containers"/> using the given <param name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="containers">The list of containers.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerRun(Cake.Core.ICakeContext,System.String,System.String,System.String[])">
+            <summary>
+            Creates a new container using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="image">The image.</param>
+            <param name="args">The arguments.</param>
+            <param name="command">The command.</param>
+            <returns>Container ID</returns>
+            <remarks>Return value is first line from stdout. This method will redirect stdout and it won't be available for capture.</remarks>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerRun(Cake.Core.ICakeContext,Cake.Docker.DockerContainerRunSettings,System.String,System.String,System.String[])">
+            <summary>
+            Creates a new container given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="image">The image.</param>
+            <param name="args">The arguments.</param>
+            <param name="command">The command.</param>
+            <returns>Container ID</returns>
+            <remarks>Return value is first line from stdout. This method will redirect stdout and it won't be available for capture.</remarks>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerRunWithoutResult(Cake.Core.ICakeContext,System.String,System.String,System.String[])">
+            <summary>
+            Creates a new container using default settings. and doesn't return the output like 
+            <see cref="M:Cake.Docker.DockerAliases.DockerRun(Cake.Core.ICakeContext,System.String,System.String,System.String[])"/> does.
+            This way one can capture stdout.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="image">The image.</param>
+            <param name="args">The arguments.</param>
+            <param name="command">The command.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerRunWithoutResult(Cake.Core.ICakeContext,Cake.Docker.DockerContainerRunSettings,System.String,System.String,System.String[])">
+            <summary>
+            Creates a new container given <paramref name="settings"/> and doesn't return the output like 
+            <see cref="M:Cake.Docker.DockerAliases.DockerRun(Cake.Core.ICakeContext,Cake.Docker.DockerContainerRunSettings,System.String,System.String,System.String[])"/> does.
+            This way one can capture stdout.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="image">The image.</param>
+            <param name="args">The arguments.</param>
+            <param name="command">The command.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerStart(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Starts an array of <paramref name="containers"/> using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="containers">The list of containers.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerStart(Cake.Core.ICakeContext,Cake.Docker.DockerContainerStartSettings,System.String[])">
+            <summary>
+            Starts an array of <paramref name="containers"/> using the give <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="containers">The list of containers.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerStop(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Stops an array of <paramref name="containers"/> using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="containers">The list of containers.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerStop(Cake.Core.ICakeContext,Cake.Docker.DockerContainerStopSettings,System.String[])">
+            <summary>
+            Stops an array of <paramref name="containers"/> using the give <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="containers">The list of containers.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerCustomCommand(Cake.Core.ICakeContext,System.String)">
+            <summary>
+            Run a custom docker command
+            </summary>
+            <param name="context">The context.</param>
+            <param name="command">The custom command.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerCustomCommand(Cake.Core.ICakeContext,Cake.Docker.DockerCustomCommandSettings,System.String)">
+            <summary>
+            Run a custom docker command
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="command">The custom command.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerBuild(Cake.Core.ICakeContext,System.String)">
+            <summary>
+            Builds an image using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="path">The path.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerBuild(Cake.Core.ICakeContext,Cake.Docker.DockerImageBuildSettings,System.String)">
+            <summary>
+            Builds an image given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="path">The path.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerLoad(Cake.Core.ICakeContext,Cake.Docker.DockerImageLoadSettings)">
+            <summary>
+            Load an image from a tar archive or STDIN.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerPull(Cake.Core.ICakeContext,System.String)">
+            <summary>
+            Pull an image or a repository from the registry.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="imageReference">The image reference.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerPull(Cake.Core.ICakeContext,Cake.Docker.DockerImagePullSettings,System.String)">
+            <summary>
+            Pull an image or a repository from the registry with given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="imageReference">The image reference.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerPush(Cake.Core.ICakeContext,System.String)">
+            <summary>
+            Push an image or a repository to the registry.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="imageReference">The image reference.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerPush(Cake.Core.ICakeContext,Cake.Docker.DockerImagePushSettings,System.String)">
+            <summary>
+            Push an image or a repository to the registry with given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="imageReference">The image reference.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerRmi(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Removes an array of <paramref name="images"/> using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="images">The list of images.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerRemove(Cake.Core.ICakeContext,Cake.Docker.DockerImageRemoveSettings,System.String[])">
+            <summary>
+            Removes an array of <paramref name="images"/> using the give <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="images">The list of images.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerSave(Cake.Core.ICakeContext,Cake.Docker.DockerImageSaveSettings,System.String[])">
+            <summary>
+            Save one or more images to a tar archive (streamed to STDOUT by default).
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="images">The list of images.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerTag(Cake.Core.ICakeContext,System.String,System.String)">
+            <summary>
+            Tag an image into a repository.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="imageReference">The image reference.</param>
+            <param name="registryReference">The registry reference.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerNetworkConnect(Cake.Core.ICakeContext,System.String,System.String,System.String[])">
+            <summary>
+            Connects a container to a network using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="network">The network.</param>
+            <param name="container">The container.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerNetworkConnect(Cake.Core.ICakeContext,Cake.Docker.DockerNetworkConnectSettings,System.String,System.String,System.String[])">
+            <summary>
+            Connects a container to a network given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="network">The network.</param>
+            <param name="container">The container.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerNetworkCreate(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Crates a network using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerNetworkCreate(Cake.Core.ICakeContext,Cake.Docker.DockerNetworkCreateSettings,System.String[])">
+            <summary>
+            Crates a network given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerNetworkDisconnect(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Disconnects a network using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerNetworkDisconnect(Cake.Core.ICakeContext,Cake.Docker.DockerNetworkDisconnectSettings,System.String[])">
+            <summary>
+            Disconnects a network given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerNetworkRemove(Cake.Core.ICakeContext,System.String,System.String[])">
+            <summary>
+            Removes a network.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="network">The network.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerNetworkRemove(Cake.Core.ICakeContext,System.String[],System.String[])">
+            <summary>
+            Removes networks.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="network">The network.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerLogin(Cake.Core.ICakeContext,System.String,System.String,System.String)">
+            <summary>
+            Register or log in to a Docker registry.
+            If no server is specified, the docker engine default is used.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="username">The username.</param>
+            <param name="password">The password.</param>
+            <param name="server">The server.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerLogin(Cake.Core.ICakeContext,Cake.Docker.DockerRegistryLoginSettings,System.String)">
+            <summary>
+            Register or log in to a Docker registry.
+            If no server is specified, the docker engine default is used.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="server">The server.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerLogout(Cake.Core.ICakeContext,System.String)">
+            <summary>
+            Logout from a Docker registry.
+            If no server is specified, the docker engine default is used.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="server">The server.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerLogout(Cake.Core.ICakeContext,Cake.Docker.DockerRegistryLogoutSettings,System.String)">
+            <summary>
+            Logout from a Docker registry.
+            If no server is specified, the docker engine default is used.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="server">The server.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerSwarmInit(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Initializes a swarm using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerSwarmInit(Cake.Core.ICakeContext,Cake.Docker.DockerSwarmInitSettings,System.String[])">
+            <summary>
+            Initializes a swarm given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerSwarmJoin(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Joins a swarm using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerSwarmJoin(Cake.Core.ICakeContext,Cake.Docker.DockerSwarmJoinSettings,System.String[])">
+            <summary>
+            Joins a swarm given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerSwarmLeave(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Leaves a swarm using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerSwarmLeave(Cake.Core.ICakeContext,Cake.Docker.DockerSwarmLeaveSettings,System.String[])">
+            <summary>
+            Leaves a swarm given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerSwarmUpdate(Cake.Core.ICakeContext,System.String[])">
+            <summary>
+            Updates a swarm using default settings.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerAliases.DockerSwarmUpdate(Cake.Core.ICakeContext,Cake.Docker.DockerSwarmUpdateSettings,System.String[])">
+            <summary>
+            Updates a swarm given <paramref name="settings"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="settings">The settings.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeBuildSettings">
+            <summary>
+            Settings for docker build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeBuildSettings.ForceRm">
+            <summary>
+            Always remove intermediate containers.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeBuildSettings.NoCache">
+            <summary>
+            Do not use cache when building the image.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeBuildSettings.Pull">
+            <summary>
+            Always attempt to pull a newer version of the image.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeBuildSettings.BuildArg">
+            <summary>
+            key=val     Set build-time variables for one service.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeCreateSettings">
+            <summary>
+            Settings for docker build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeCreateSettings.ForceRecreate">
+            <summary>
+            Recreate containers even if their configuration and image haven't changed. Incompatible with --no-recreate.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeCreateSettings.NoRecreate">
+            <summary>
+            If containers already exist, don't recreate them. Incompatible with --force-recreate.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeCreateSettings.NoBuild">
+            <summary>
+            Don't build an image, even if it's missing.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeCreateSettings.Build">
+            <summary>
+            Build images before creating containers.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeSettings">
+            <summary>
+            Generic docker-compose settings.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.Files">
+            <summary>
+            Configuration files.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.ProjectName">
+            <summary>
+            Specify an alternate project name (default: directory name)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.Verbose">
+            <summary>
+            Show more output
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.Version">
+            <summary>
+            Print version and exit
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.Host">
+            <summary>
+            Daemon socket to connect to
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.Tls">
+            <summary>
+            Use TLS; implied by --tlsverify
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.Tlscacert">
+            <summary>
+            Trust certs signed only by this CA
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.Tlscert">
+            <summary>
+            Path to TLS certificate file
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.Tlskey">
+            <summary>
+            Path to TLS key file
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.Tlsverify">
+            <summary>
+            Use TLS and verify the remote
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.SkipHostnameCheck">
+            <summary>
+            Don't check the daemon's hostname against the name specified
+              in the client certificate (for example if your docker host
+              is an IP address)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeSettings.ProjectDirectory">
+            <summary>
+            Specify an alternate working directory
+            (default: the path of the Compose file)
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeDownSettings">
+            <summary>
+            Settings for docker build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeDownSettings.Rmi">
+            <summary>
+            Remove images. Type must be one of:
+              'all': Remove all images used by any service.
+              'local': Remove only images that don't have a custom tag
+              set by the `image` field.
+            </summary>
+            <remarks>Can use <see cref="T:Cake.Docker.DockerComposeDownRmiType"/> constants.</remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeDownSettings.Volumes">
+            <summary>
+            Remove named volumes declared in the `volumes` section
+              of the Compose file and anonymous volumes
+              attached to containers.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeDownSettings.RemoveOrphans">
+            <summary>
+            Remove containers for services not defined in the
+              Compose file
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeDownRmiType">
+            <summary>
+            Options for <see cref="T:Cake.Docker.DockerComposeDownSettings"/> Rmi.
+            </summary>
+        </member>
+        <member name="F:Cake.Docker.DockerComposeDownRmiType.All">
+            <summary>
+            Remove all images used by any service.
+            </summary>
+        </member>
+        <member name="F:Cake.Docker.DockerComposeDownRmiType.Local">
+            <summary>
+             Remove only images that don't have a custom tag set by the `image` field.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeExecSettings">
+            <summary>
+            Settings for docker-compose exec [options] [-e KEY=VAL...] SERVICE COMMAND [ARGS...]
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeExecSettings.Detach">
+            <summary>
+            -d, --detach
+            Detached mode: Run command in the background.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeExecSettings.Privileged">
+            <summary>
+            --privileged
+            Give extended privileges to the process.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeExecSettings.User">
+            <summary>
+            -u, --user USER
+            Run the command as this user.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeExecSettings.Index">
+            <summary>
+            --index=index
+            index of the container if there are multiple
+            instances of a service
+            default: 1
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeExecSettings.Env">
+            <summary>
+            --env, -e
+            Set environment variables (can be used multiple times,
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeExecSettings.Workdir">
+            <summary>
+            --workdir, -w
+            Path to workdir directory for this command.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeExecSettings.DisablePseudoTTYAllocation">
+            <summary>
+            -T
+             Disable pseudo-tty allocation. By default `docker-compose exec`
+            allocates a TTY.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeKillSettings">
+            <summary>
+            Settings for docker build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeKillSettings.Signal">
+            <summary>
+             SIGNAL to send to the container. Default signal is SIGKILL.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeLogsSettings">
+            <summary>
+            Settings for docker build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeLogsSettings.NoColor">
+            <summary>
+            Produce monochrome output.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeLogsSettings.Follow">
+            <summary>
+            --follow, -f
+            default: false
+            Follow log output
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeLogsSettings.Timestamps">
+            <summary>
+            -t, --timestamps
+            default: false
+            Show timestamps
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeLogsSettings.Tail">
+            <summary>
+            --tail="all"
+            Number of lines to show from the end of the logs for each container.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposePullSettings">
+            <summary>
+            Settings for docker build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposePullSettings.IgnorePullFailures">
+            <summary>
+            Pull what it can and ignores images with pull failures.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeRestartSettings">
+            <summary>
+            Settings for docker build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRestartSettings.Timeout">
+            <summary>
+            Specify a shutdown timeout in seconds. (default: 10)
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeRmSettings">
+            <summary>
+            Settings for docker build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRmSettings.Force">
+            <summary>
+            Don't ask to confirm removal
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRmSettings.Volumes">
+            <summary>
+            Remove any anonymous volumes attached to containers
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRmSettings.Stop">
+            <summary>
+            Stop the containers, if required, before removing
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeRunSettings">
+            <summary>
+            Settings for docker build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRunSettings.DetachedMode">
+            <summary>
+            Detached mode: Run container in the background, print new container name.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRunSettings.Name">
+            <summary>
+            Assign a name to the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRunSettings.Entrypoint">
+            <summary>
+            Override the entrypoint of the image.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRunSettings.Environment">
+            <summary>
+            Set an environment variable(can be used multiple times)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRunSettings.User">
+            <summary>
+            Run as specified username or uid
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRunSettings.NoDeps">
+            <summary>
+            Don't start linked services.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRunSettings.Rm">
+            <summary>
+            Remove container after run. Ignored in detached mode.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRunSettings.Publish">
+            <summary>
+            Publish a container's port(s) to the host
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeRunSettings.ServicePorts">
+            <summary>
+            Run command with the service's ports enabled and mapped to the host.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeStopSettings">
+            <summary>
+            Settings for docker build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeStopSettings.Timeout">
+            <summary>
+            Specify a shutdown timeout in seconds (default: 10).
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeUpSettings">
+            <summary>
+            Settings for docker build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.DetachedMode">
+            <summary>
+            Detached mode: Run container in the background, print new container name.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.NoColor">
+            <summary>
+            Produce monochrome output.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.NoDeps">
+            <summary>
+            Don't start linked services.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.ForceRecreate">
+            <summary>
+            Recreate containers even if their configuration
+              and image haven't changed.
+              Incompatible with --no-recreate.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.NoRecreate">
+            <summary>
+            If containers already exist, don't recreate them.
+              Incompatible with --force-recreate.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.NoBuild">
+            <summary>
+            Don't build an image, even if it's missing.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.Build">
+            <summary>
+            Build images before starting containers.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.AbortOnContainerExit">
+            <summary>
+            Stops all containers if any container was stopped.
+              Incompatible with -d.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.Timeout">
+            <summary>
+            Use this timeout in seconds for container shutdown
+              when attached or when containers are already
+              running. (default: 10)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.RemoveOrphans">
+            <summary>
+            Remove containers for services not defined in
+              the Compose file
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.ExitCodeFrom">
+            <summary>
+            Return the exit code of the selected service container.
+              Implies --abort-on-container-exit.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerComposeUpSettings.Scale">
+            <summary>
+            SERVICE=NUM        Scale SERVICE to NUM instances. Overrides the `scale`
+              setting in the Compose file if present.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.Constants">
+            <summary>
+            Constants
+            </summary>
+        </member>
+        <member name="F:Cake.Docker.Constants.BoolWithTrueDefaultFormat">
+            <summary>
+            Used with <see cref="P:Cake.Docker.AutoPropertyAttribute.Format"/> when a bool argument defaults to true.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerContainerCpSettings">
+            <summary>
+            Settings for docker Use: `cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-.
+            Copy files/folders between a container and the local filesystem
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCpSettings.Archive">
+            <summary>
+            --archive, -a
+            default: false
+            Archive mode (copy all uid/gid information)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCpSettings.FollowLink">
+            <summary>
+            --follow-link, -L
+            default: false
+            Always follow symbol link in SRC_PATH
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerContainerCreateSettings">
+            <summary>
+            Settings for docker create [OPTIONS] IMAGE [COMMAND] [ARG...].
+            Create a new container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.AddHost">
+            <summary>
+            --add-host
+            Add a custom host-to-IP mapping (host:ip)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Attach">
+            <summary>
+            --attach, -a
+            Attach to STDIN, STDOUT or STDERR
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.BlkioWeightDevice">
+            <summary>
+            --blkio-weight-device
+            Block IO weight (relative device weight)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CapAdd">
+            <summary>
+            --cap-add
+            Add Linux capabilities
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CapDrop">
+            <summary>
+            --cap-drop
+            Drop Linux capabilities
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CgroupParent">
+            <summary>
+            --cgroup-parent
+            Optional parent cgroup for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Cidfile">
+            <summary>
+            --cidfile
+            Write the container ID to the file
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CpuCount">
+            <summary>
+            --cpu-count
+            default: 0
+            CPU count (Windows only)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CpuPercent">
+            <summary>
+            --cpu-percent
+            default: 0
+            CPU percent (Windows only)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CpuPeriod">
+            <summary>
+            --cpu-period
+            default: 0
+            Limit CPU CFS (Completely Fair Scheduler) period
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CpuQuota">
+            <summary>
+            --cpu-quota
+            default: 0
+            Limit CPU CFS (Completely Fair Scheduler) quota
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CpuRtPeriod">
+            <summary>
+            --cpu-rt-period
+            default: 0
+            Limit CPU real-time period in microseconds
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CpuRtRuntime">
+            <summary>
+            --cpu-rt-runtime
+            default: 0
+            Limit CPU real-time runtime in microseconds
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Cpus">
+            <summary>
+            --cpus
+            Number of CPUs
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CpusetCpus">
+            <summary>
+            --cpuset-cpus
+            CPUs in which to allow execution (0-3, 0,1)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CpusetMems">
+            <summary>
+            --cpuset-mems
+            MEMs in which to allow execution (0-3, 0,1)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.CpuShares">
+            <summary>
+            --cpu-shares, -c
+            default: 0
+            CPU shares (relative weight)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Device">
+            <summary>
+            --device
+            Add a host device to the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.DeviceCgroupRule">
+            <summary>
+            --device-cgroup-rule
+            Add a rule to the cgroup allowed devices list
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.DeviceReadBps">
+            <summary>
+            --device-read-bps
+            Limit read rate (bytes per second) from a device
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.DeviceReadIops">
+            <summary>
+            --device-read-iops
+            Limit read rate (IO per second) from a device
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.DeviceWriteBps">
+            <summary>
+            --device-write-bps
+            Limit write rate (bytes per second) to a device
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.DeviceWriteIops">
+            <summary>
+            --device-write-iops
+            Limit write rate (IO per second) to a device
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.DisableContentTrust">
+            <summary>
+            --disable-content-trust
+            default: true
+            Skip image verification
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Dns">
+            <summary>
+            --dns
+            Set custom DNS servers
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.DnsOption">
+            <summary>
+            --dns-option
+            Set DNS options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.DnsSearch">
+            <summary>
+            --dns-search
+            Set custom DNS search domains
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Entrypoint">
+            <summary>
+            --entrypoint
+            Overwrite the default ENTRYPOINT of the image
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Env">
+            <summary>
+            --env, -e
+            Set environment variables
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.EnvFile">
+            <summary>
+            --env-file
+            Read in a file of environment variables
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Expose">
+            <summary>
+            --expose
+            Expose a port or a range of ports
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.GroupAdd">
+            <summary>
+            --group-add
+            Add additional groups to join
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.HealthCmd">
+            <summary>
+            --health-cmd
+            Command to run to check health
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.HealthInterval">
+            <summary>
+            --health-interval
+            default: 0
+            Time between running the check (ms|s|m|h) (default 0s)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.HealthRetries">
+            <summary>
+            --health-retries
+            default: 0
+            Consecutive failures needed to report unhealthy
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.HealthStartPeriod">
+            <summary>
+            --health-start-period
+            default: 0
+            Start period for the container to initialize before starting health-retries countdown (ms|s|m|h) (default 0s)
+            </summary>
+            <remarks>
+            Version: 1.29
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.HealthTimeout">
+            <summary>
+            --health-timeout
+            default: 0
+            Maximum time to allow one check to run (ms|s|m|h) (default 0s)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Hostname">
+            <summary>
+            --hostname, -h
+            Container host name
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Init">
+            <summary>
+            --init
+            default: false
+            Run an init inside the container that forwards signals and reaps processes
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Interactive">
+            <summary>
+            --interactive, -i
+            default: false
+            Keep STDIN open even if not attached
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.IoMaxbandwidth">
+            <summary>
+            --io-maxbandwidth
+            Maximum IO bandwidth limit for the system drive (Windows only)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.IoMaxiops">
+            <summary>
+            --io-maxiops
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Ip">
+            <summary>
+            --ip
+            IPv4 address (e.g., 172.30.100.104)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Ip6">
+            <summary>
+            --ip6
+            IPv6 address (e.g., 2001:db8::33)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Ipc">
+            <summary>
+            --ipc
+            IPC mode to use
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Isolation">
+            <summary>
+            --isolation
+            Container isolation technology
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.KernelMemory">
+            <summary>
+            --kernel-memory
+            Kernel memory limit
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Label">
+            <summary>
+            --label, -l
+            Set meta data on a container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.LabelFile">
+            <summary>
+            --label-file
+            Read in a line delimited file of labels
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Link">
+            <summary>
+            --link
+            Add link to another container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.LinkLocalIp">
+            <summary>
+            --link-local-ip
+            Container IPv4/IPv6 link-local addresses
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.LogDriver">
+            <summary>
+            --log-driver
+            Logging driver for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.LogOpt">
+            <summary>
+            --log-opt
+            Log driver options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.MacAddress">
+            <summary>
+            --mac-address
+            Container MAC address (e.g., 92:d0:c6:0a:29:33)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Memory">
+            <summary>
+            --memory, -m
+            Memory limit
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.MemoryReservation">
+            <summary>
+            --memory-reservation
+            Memory soft limit
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.MemorySwap">
+            <summary>
+            --memory-swap
+            Swap limit equal to memory plus swap: &#39;-1&#39; to enable unlimited swap
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.MemorySwappiness">
+            <summary>
+            --memory-swappiness
+            default: -1
+            Tune container memory swappiness (0 to 100)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Mount">
+            <summary>
+            --mount
+            Attach a filesystem mount to the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Name">
+            <summary>
+            --name
+            Assign a name to the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Network">
+            <summary>
+            --network
+            default: default
+            Connect a container to a network
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.NetworkAlias">
+            <summary>
+            --network-alias
+            Add network-scoped alias for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.NoHealthcheck">
+            <summary>
+            --no-healthcheck
+            default: false
+            Disable any container-specified HEALTHCHECK
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.OomKillDisable">
+            <summary>
+            --oom-kill-disable
+            default: false
+            Disable OOM Killer
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.OomScoreAdj">
+            <summary>
+            --oom-score-adj
+            default: 0
+            Tune host&#39;s OOM preferences (-1000 to 1000)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Pid">
+            <summary>
+            --pid
+            PID namespace to use
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.PidsLimit">
+            <summary>
+            --pids-limit
+            default: 0
+            Tune container pids limit (set -1 for unlimited)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Platform">
+            <summary>
+            --platform
+            Set platform if server is multi-platform capable
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Privileged">
+            <summary>
+            --privileged
+            default: false
+            Give extended privileges to this container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Publish">
+            <summary>
+            --publish, -p
+            Publish a container&#39;s port(s) to the host
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.PublishAll">
+            <summary>
+            --publish-all, -P
+            default: false
+            Publish all exposed ports to random ports
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.ReadOnly">
+            <summary>
+            --read-only
+            default: false
+            Mount the container&#39;s root filesystem as read only
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Restart">
+            <summary>
+            --restart
+            default: no
+            Restart policy to apply when a container exits
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Rm">
+            <summary>
+            --rm
+            default: false
+            Automatically remove the container when it exits
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Runtime">
+            <summary>
+            --runtime
+            Runtime to use for this container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.SecurityOpt">
+            <summary>
+            --security-opt
+            Security Options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.ShmSize">
+            <summary>
+            --shm-size
+            Size of /dev/shm
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.StopSignal">
+            <summary>
+            --stop-signal
+            default: signal.DefaultStopSignal
+            Signal to stop a container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.StopTimeout">
+            <summary>
+            --stop-timeout
+            default: 0
+            Timeout (in seconds) to stop a container
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.StorageOpt">
+            <summary>
+            --storage-opt
+            Storage driver options for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Sysctl">
+            <summary>
+            --sysctl
+            Sysctl options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Tmpfs">
+            <summary>
+            --tmpfs
+            Mount a tmpfs directory
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Tty">
+            <summary>
+            --tty, -t
+            default: false
+            Allocate a pseudo-TTY
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Ulimit">
+            <summary>
+            --ulimit
+            Ulimit options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.User">
+            <summary>
+            --user, -u
+            Username or UID (format: &lt;name|uid&gt;[:&lt;group|gid&gt;])
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Userns">
+            <summary>
+            --userns
+            User namespace to use
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Uts">
+            <summary>
+            --uts
+            UTS namespace to use
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Volume">
+            <summary>
+            --volume, -v
+            Bind mount a volume
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.VolumeDriver">
+            <summary>
+            --volume-driver
+            Optional volume driver for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.VolumesFrom">
+            <summary>
+            --volumes-from
+            Mount volumes from the specified container(s)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerCreateSettings.Workdir">
+            <summary>
+            --workdir, -w
+            Working directory inside the container
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerContainerExecSettings">
+            <summary>
+            Settings for docker exec [OPTIONS] CONTAINER COMMAND [ARG...].
+            Run a command in a running container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerExecSettings.Detach">
+            <summary>
+            --detach, -d
+            default: false
+            Detached mode: run command in the background
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerExecSettings.DetachKeys">
+            <summary>
+            --detach-keys
+            Override the key sequence for detaching a container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerExecSettings.Env">
+            <summary>
+            --env, -e
+            Set environment variables
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerExecSettings.Interactive">
+            <summary>
+            --interactive, -i
+            default: false
+            Keep STDIN open even if not attached
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerExecSettings.Privileged">
+            <summary>
+            --privileged
+            default: false
+            Give extended privileges to the command
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerExecSettings.Tty">
+            <summary>
+            --tty, -t
+            default: false
+            Allocate a pseudo-TTY
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerExecSettings.User">
+            <summary>
+            --user, -u
+            Username or UID (format: &lt;name|uid&gt;[:&lt;group|gid&gt;])
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerExecSettings.Workdir">
+            <summary>
+            --workdir, -w
+            Working directory inside the container
+            </summary>
+            <remarks>
+            Version: 1.35
+            </remarks>
+        </member>
+        <member name="T:Cake.Docker.DockerContainerLogsSettings">
+            <summary>
+            Settings for docker logs [OPTIONS] CONTAINER.
+            Fetch the logs of a container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerLogsSettings.Details">
+            <summary>
+            --details
+            default: false
+            Show extra details provided to logs
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerLogsSettings.Follow">
+            <summary>
+            --follow, -f
+            default: false
+            Follow log output
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerLogsSettings.Since">
+            <summary>
+            --since
+            Show logs since timestamp (e.g. 2013-01-02T13:23:37) or relative (e.g. 42m for 42 minutes)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerLogsSettings.Tail">
+            <summary>
+            --tail
+            default: all
+            Number of lines to show from the end of the logs
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerLogsSettings.Timestamps">
+            <summary>
+            --timestamps, -t
+            default: false
+            Show timestamps
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerLogsSettings.Until">
+            <summary>
+            --until
+            Show logs before a timestamp (e.g. 2013-01-02T13:23:37) or relative (e.g. 42m for 42 minutes)
+            </summary>
+            <remarks>
+            Version: 1.35
+            </remarks>
+        </member>
+        <member name="T:Cake.Docker.DockerContainerRmSettings">
+            <summary>
+            Settings for docker rm [OPTIONS] CONTAINER [CONTAINER...].
+            Remove one or more containers
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRmSettings.Force">
+            <summary>
+            --force, -f
+            default: false
+            Force the removal of a running container (uses SIGKILL)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRmSettings.Link">
+            <summary>
+            --link, -l
+            default: false
+            Remove the specified link
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRmSettings.Volumes">
+            <summary>
+            --volumes, -v
+            default: false
+            Remove the volumes associated with the container
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerContainerRunSettings">
+            <summary>
+            Settings for docker run [OPTIONS] IMAGE [COMMAND] [ARG...].
+            Run a command in a new container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.AddHost">
+            <summary>
+            --add-host
+            Add a custom host-to-IP mapping (host:ip)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Attach">
+            <summary>
+            --attach, -a
+            Attach to STDIN, STDOUT or STDERR
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.BlkioWeightDevice">
+            <summary>
+            --blkio-weight-device
+            Block IO weight (relative device weight)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CapAdd">
+            <summary>
+            --cap-add
+            Add Linux capabilities
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CapDrop">
+            <summary>
+            --cap-drop
+            Drop Linux capabilities
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CgroupParent">
+            <summary>
+            --cgroup-parent
+            Optional parent cgroup for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Cidfile">
+            <summary>
+            --cidfile
+            Write the container ID to the file
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CpuCount">
+            <summary>
+            --cpu-count
+            default: 0
+            CPU count (Windows only)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CpuPercent">
+            <summary>
+            --cpu-percent
+            default: 0
+            CPU percent (Windows only)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CpuPeriod">
+            <summary>
+            --cpu-period
+            default: 0
+            Limit CPU CFS (Completely Fair Scheduler) period
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CpuQuota">
+            <summary>
+            --cpu-quota
+            default: 0
+            Limit CPU CFS (Completely Fair Scheduler) quota
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CpuRtPeriod">
+            <summary>
+            --cpu-rt-period
+            default: 0
+            Limit CPU real-time period in microseconds
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CpuRtRuntime">
+            <summary>
+            --cpu-rt-runtime
+            default: 0
+            Limit CPU real-time runtime in microseconds
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Cpus">
+            <summary>
+            --cpus
+            Number of CPUs
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CpusetCpus">
+            <summary>
+            --cpuset-cpus
+            CPUs in which to allow execution (0-3, 0,1)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CpusetMems">
+            <summary>
+            --cpuset-mems
+            MEMs in which to allow execution (0-3, 0,1)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.CpuShares">
+            <summary>
+            --cpu-shares, -c
+            default: 0
+            CPU shares (relative weight)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Detach">
+            <summary>
+            --detach, -d
+            default: false
+            Run container in background and print container ID
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.DetachKeys">
+            <summary>
+            --detach-keys
+            Override the key sequence for detaching a container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Device">
+            <summary>
+            --device
+            Add a host device to the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.DeviceCgroupRule">
+            <summary>
+            --device-cgroup-rule
+            Add a rule to the cgroup allowed devices list
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.DeviceReadBps">
+            <summary>
+            --device-read-bps
+            Limit read rate (bytes per second) from a device
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.DeviceReadIops">
+            <summary>
+            --device-read-iops
+            Limit read rate (IO per second) from a device
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.DeviceWriteBps">
+            <summary>
+            --device-write-bps
+            Limit write rate (bytes per second) to a device
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.DeviceWriteIops">
+            <summary>
+            --device-write-iops
+            Limit write rate (IO per second) to a device
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.DisableContentTrust">
+            <summary>
+            --disable-content-trust
+            default: true
+            Skip image verification
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Dns">
+            <summary>
+            --dns
+            Set custom DNS servers
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.DnsOption">
+            <summary>
+            --dns-option
+            Set DNS options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.DnsSearch">
+            <summary>
+            --dns-search
+            Set custom DNS search domains
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Entrypoint">
+            <summary>
+            --entrypoint
+            Overwrite the default ENTRYPOINT of the image
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Env">
+            <summary>
+            --env, -e
+            Set environment variables
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.EnvFile">
+            <summary>
+            --env-file
+            Read in a file of environment variables
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Expose">
+            <summary>
+            --expose
+            Expose a port or a range of ports
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.GroupAdd">
+            <summary>
+            --group-add
+            Add additional groups to join
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.HealthCmd">
+            <summary>
+            --health-cmd
+            Command to run to check health
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.HealthInterval">
+            <summary>
+            --health-interval
+            default: 0
+            Time between running the check (ms|s|m|h) (default 0s)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.HealthRetries">
+            <summary>
+            --health-retries
+            default: 0
+            Consecutive failures needed to report unhealthy
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.HealthStartPeriod">
+            <summary>
+            --health-start-period
+            default: 0
+            Start period for the container to initialize before starting health-retries countdown (ms|s|m|h) (default 0s)
+            </summary>
+            <remarks>
+            Version: 1.29
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.HealthTimeout">
+            <summary>
+            --health-timeout
+            default: 0
+            Maximum time to allow one check to run (ms|s|m|h) (default 0s)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Hostname">
+            <summary>
+            --hostname, -h
+            Container host name
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Init">
+            <summary>
+            --init
+            default: false
+            Run an init inside the container that forwards signals and reaps processes
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Interactive">
+            <summary>
+            --interactive, -i
+            default: false
+            Keep STDIN open even if not attached
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.IoMaxbandwidth">
+            <summary>
+            --io-maxbandwidth
+            Maximum IO bandwidth limit for the system drive (Windows only)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.IoMaxiops">
+            <summary>
+            --io-maxiops
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Ip">
+            <summary>
+            --ip
+            IPv4 address (e.g., 172.30.100.104)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Ip6">
+            <summary>
+            --ip6
+            IPv6 address (e.g., 2001:db8::33)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Ipc">
+            <summary>
+            --ipc
+            IPC mode to use
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Isolation">
+            <summary>
+            --isolation
+            Container isolation technology
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.KernelMemory">
+            <summary>
+            --kernel-memory
+            Kernel memory limit
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Label">
+            <summary>
+            --label, -l
+            Set meta data on a container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.LabelFile">
+            <summary>
+            --label-file
+            Read in a line delimited file of labels
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Link">
+            <summary>
+            --link
+            Add link to another container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.LinkLocalIp">
+            <summary>
+            --link-local-ip
+            Container IPv4/IPv6 link-local addresses
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.LogDriver">
+            <summary>
+            --log-driver
+            Logging driver for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.LogOpt">
+            <summary>
+            --log-opt
+            Log driver options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.MacAddress">
+            <summary>
+            --mac-address
+            Container MAC address (e.g., 92:d0:c6:0a:29:33)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Memory">
+            <summary>
+            --memory, -m
+            Memory limit
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.MemoryReservation">
+            <summary>
+            --memory-reservation
+            Memory soft limit
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.MemorySwap">
+            <summary>
+            --memory-swap
+            Swap limit equal to memory plus swap: &#39;-1&#39; to enable unlimited swap
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.MemorySwappiness">
+            <summary>
+            --memory-swappiness
+            default: -1
+            Tune container memory swappiness (0 to 100)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Mount">
+            <summary>
+            --mount
+            Attach a filesystem mount to the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Name">
+            <summary>
+            --name
+            Assign a name to the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Network">
+            <summary>
+            --network
+            default: default
+            Connect a container to a network
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.NetworkAlias">
+            <summary>
+            --network-alias
+            Add network-scoped alias for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.NoHealthcheck">
+            <summary>
+            --no-healthcheck
+            default: false
+            Disable any container-specified HEALTHCHECK
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.OomKillDisable">
+            <summary>
+            --oom-kill-disable
+            default: false
+            Disable OOM Killer
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.OomScoreAdj">
+            <summary>
+            --oom-score-adj
+            default: 0
+            Tune host&#39;s OOM preferences (-1000 to 1000)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Pid">
+            <summary>
+            --pid
+            PID namespace to use
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.PidsLimit">
+            <summary>
+            --pids-limit
+            default: 0
+            Tune container pids limit (set -1 for unlimited)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Platform">
+            <summary>
+            --platform
+            Set platform if server is multi-platform capable
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Privileged">
+            <summary>
+            --privileged
+            default: false
+            Give extended privileges to this container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Publish">
+            <summary>
+            --publish, -p
+            Publish a container&#39;s port(s) to the host
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.PublishAll">
+            <summary>
+            --publish-all, -P
+            default: false
+            Publish all exposed ports to random ports
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.ReadOnly">
+            <summary>
+            --read-only
+            default: false
+            Mount the container&#39;s root filesystem as read only
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Restart">
+            <summary>
+            --restart
+            default: no
+            Restart policy to apply when a container exits
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Rm">
+            <summary>
+            --rm
+            default: false
+            Automatically remove the container when it exits
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Runtime">
+            <summary>
+            --runtime
+            Runtime to use for this container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.SecurityOpt">
+            <summary>
+            --security-opt
+            Security Options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.ShmSize">
+            <summary>
+            --shm-size
+            Size of /dev/shm
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.SigProxy">
+            <summary>
+            --sig-proxy
+            default: true
+            Proxy received signals to the process
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.StopSignal">
+            <summary>
+            --stop-signal
+            default: signal.DefaultStopSignal
+            Signal to stop a container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.StopTimeout">
+            <summary>
+            --stop-timeout
+            default: 0
+            Timeout (in seconds) to stop a container
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.StorageOpt">
+            <summary>
+            --storage-opt
+            Storage driver options for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Sysctl">
+            <summary>
+            --sysctl
+            Sysctl options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Tmpfs">
+            <summary>
+            --tmpfs
+            Mount a tmpfs directory
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Tty">
+            <summary>
+            --tty, -t
+            default: false
+            Allocate a pseudo-TTY
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Ulimit">
+            <summary>
+            --ulimit
+            Ulimit options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.User">
+            <summary>
+            --user, -u
+            Username or UID (format: &lt;name|uid&gt;[:&lt;group|gid&gt;])
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Userns">
+            <summary>
+            --userns
+            User namespace to use
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Uts">
+            <summary>
+            --uts
+            UTS namespace to use
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Volume">
+            <summary>
+            --volume, -v
+            Bind mount a volume
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.VolumeDriver">
+            <summary>
+            --volume-driver
+            Optional volume driver for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.VolumesFrom">
+            <summary>
+            --volumes-from
+            Mount volumes from the specified container(s)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerRunSettings.Workdir">
+            <summary>
+            --workdir, -w
+            Working directory inside the container
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerContainerStartSettings">
+            <summary>
+            Settings for docker start [OPTIONS] CONTAINER [CONTAINER...].
+            Start one or more stopped containers
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerStartSettings.Attach">
+            <summary>
+            --attach, -a
+            default: false
+            Attach STDOUT/STDERR and forward signals
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerStartSettings.Checkpoint">
+            <summary>
+            --checkpoint
+            Restore from this checkpoint
+            </summary>
+            <remarks>
+            Experimental
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerStartSettings.CheckpointDir">
+            <summary>
+            --checkpoint-dir
+            Use a custom checkpoint storage directory
+            </summary>
+            <remarks>
+            Experimental
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerStartSettings.DetachKeys">
+            <summary>
+            --detach-keys
+            Override the key sequence for detaching a container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerStartSettings.Interactive">
+            <summary>
+            --interactive, -i
+            default: false
+            Attach container&#39;s STDIN
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerContainerStopSettings">
+            <summary>
+            Settings for docker stop [OPTIONS] CONTAINER [CONTAINER...].
+            Stop one or more running containers
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerContainerStopSettings.Time">
+            <summary>
+            --time, -t
+            default: 10
+            Seconds to wait for stop before killing it
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerCustomCommandSettings">
+            <summary>
+            Settings for docker login [OPTIONS] [SERVER].
+            Log in to a Docker registry
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerArgument">
+            <summary>
+            Represents an agnostic argument.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerArgument.Key">
+            <summary>
+            Key part of the argument
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerArgument.Value">
+            <summary>
+            Value part of the argument.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerArgument.Quoting">
+            <summary>
+            The required quoting mode.
+            </summary>
+        </member>
+        <member name="M:Cake.Docker.DockerArgument.#ctor(System.String,System.String,Cake.Docker.DockerArgumentQuoting)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="quoting"></param>
+        </member>
+        <member name="T:Cake.Docker.DockerArgumentQuoting">
+            <summary>
+            Quoting mode
+            </summary>
+        </member>
+        <member name="F:Cake.Docker.DockerArgumentQuoting.Unquoted">
+            <summary>
+            No quoting
+            </summary>
+        </member>
+        <member name="F:Cake.Docker.DockerArgumentQuoting.Quoted">
+            <summary>
+            Quotes.
+            </summary>
+        </member>
+        <member name="F:Cake.Docker.DockerArgumentQuoting.QuotedSecret">
+            <summary>
+            A quoted secret 
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerBridge">
+            <summary>
+            Bridge type
+            </summary>
+        </member>
+        <member name="F:Cake.Docker.DockerBridge.Bridge">
+            <summary>
+            The bridge network represents the docker0 network present in all Docker installations.
+            </summary>
+        </member>
+        <member name="F:Cake.Docker.DockerBridge.None">
+            <summary>
+            The none network adds a container to a container-specific network stack.
+            </summary>
+        </member>
+        <member name="F:Cake.Docker.DockerBridge.Host">
+            <summary>
+            The host network adds a container on the hosts network stack.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerComposeTool`1">
+            <summary>
+            Base class for all Docker related tools.
+            </summary>
+            <typeparam name="TSettings">The settings type.</typeparam>
+        </member>
+        <member name="M:Cake.Docker.DockerComposeTool`1.#ctor(Cake.Core.IO.IFileSystem,Cake.Core.ICakeEnvironment,Cake.Core.IO.IProcessRunner,Cake.Core.Tooling.IToolLocator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Docker.DockerTool`1"/> class.
+            </summary>
+            <param name="fileSystem">The file system.</param>
+            <param name="environment">The environment.</param>
+            <param name="processRunner">The process runner.</param>
+            <param name="tools">The tools.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerComposeTool`1.GetToolName">
+            <summary>
+            Gets the name of the tool.
+            </summary>
+            <returns>The name of the tool.</returns>
+        </member>
+        <member name="M:Cake.Docker.DockerComposeTool`1.GetToolExecutableNames">
+            <summary>
+            Gets the possible names of the tool executable.
+            </summary>
+            <returns>The tool executable name.</returns>
+        </member>
+        <member name="M:Cake.Docker.DockerComposeTool`1.GetAlternativeToolPaths(`0)">
+            <summary>
+            
+            </summary>
+            <param name="settings">The settings.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.DockerResolver.CheckCommonWindowsPaths(Cake.Core.IO.IFileSystem,Cake.Core.ICakeEnvironment)">
+            <summary>
+            Check common docker client locations.
+            </summary>
+            <param name="fileSystem"></param>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cake.Docker.DockerResolver.GetDefaultWindowsPaths(Cake.Core.IO.IFileSystem,Cake.Core.ICakeEnvironment)">
+            <summary>
+            Get default paths for common docker client installations.
+            </summary>
+            <param name="fileSystem"></param>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cake.Docker.DockerTool`1">
+            <summary>
+            Base class for all Docker related tools.
+            </summary>
+            <typeparam name="TSettings">The settings type.</typeparam>
+        </member>
+        <member name="M:Cake.Docker.DockerTool`1.#ctor(Cake.Core.IO.IFileSystem,Cake.Core.ICakeEnvironment,Cake.Core.IO.IProcessRunner,Cake.Core.Tooling.IToolLocator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Docker.DockerTool`1"/> class.
+            </summary>
+            <param name="fileSystem">The file system.</param>
+            <param name="environment">The environment.</param>
+            <param name="processRunner">The process runner.</param>
+            <param name="tools">The tools.</param>
+        </member>
+        <member name="M:Cake.Docker.DockerTool`1.GetToolName">
+            <summary>
+            Gets the name of the tool.
+            </summary>
+            <returns>The name of the tool.</returns>
+        </member>
+        <member name="M:Cake.Docker.DockerTool`1.GetToolExecutableNames">
+            <summary>
+            Gets the possible names of the tool executable.
+            </summary>
+            <returns>The tool executable name.</returns>
+        </member>
+        <member name="M:Cake.Docker.DockerTool`1.GetAlternativeToolPaths(`0)">
+            <summary>
+            
+            </summary>
+            <param name="settings">The settings.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cake.Docker.EmptySettings">
+            <summary>
+            Using when there are no settings
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.GenericDockerComposeRunner`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TSettings"></typeparam>
+        </member>
+        <member name="M:Cake.Docker.GenericDockerComposeRunner`1.#ctor(Cake.Core.IO.IFileSystem,Cake.Core.ICakeEnvironment,Cake.Core.IO.IProcessRunner,Cake.Core.Tooling.IToolLocator)">
+            <summary>
+            
+            </summary>
+            <param name="fileSystem"></param>
+            <param name="environment"></param>
+            <param name="processRunner"></param>
+            <param name="tools"></param>
+        </member>
+        <member name="M:Cake.Docker.GenericDockerComposeRunner`1.Run(System.String,`0,System.String[])">
+            <summary>
+            Runs given <paramref name="command"/> using given <paramref name=" settings"/> and <paramref name="additional"/>.
+            </summary>
+            <param name="command"></param>
+            <param name="settings">The settings.</param>
+            <param name="additional"></param>
+        </member>
+        <member name="M:Cake.Docker.GenericDockerComposeRunner`1.RunWithResult``1(System.String,`0,System.Func{System.Collections.Generic.IEnumerable{System.String},``0[]},System.String[])">
+            <summary>
+            Runs a command and returns a result based on processed output.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="command"></param>
+            <param name="settings">The settings.</param>
+            <param name="processOutput"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cake.Docker.GenericDockerRunner`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TSettings"></typeparam>
+        </member>
+        <member name="M:Cake.Docker.GenericDockerRunner`1.#ctor(Cake.Core.IO.IFileSystem,Cake.Core.ICakeEnvironment,Cake.Core.IO.IProcessRunner,Cake.Core.Tooling.IToolLocator)">
+            <summary>
+            
+            </summary>
+            <param name="fileSystem"></param>
+            <param name="environment"></param>
+            <param name="processRunner"></param>
+            <param name="tools"></param>
+        </member>
+        <member name="M:Cake.Docker.GenericDockerRunner`1.Run(System.String,`0,System.String[])">
+            <summary>
+            Runs given <paramref name="command"/> using given <paramref name=" settings"/> and <paramref name="additional"/>.
+            </summary>
+            <param name="command"></param>
+            <param name="settings">The settings.</param>
+            <param name="additional"></param>
+        </member>
+        <member name="M:Cake.Docker.GenericDockerRunner`1.RunWithResult``1(System.String,`0,System.Func{System.Collections.Generic.IEnumerable{System.String},``0[]},System.String[])">
+            <summary>
+            Runs a command and returns a result based on processed output.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="command"></param>
+            <param name="settings">The settings.</param>
+            <param name="processOutput"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cake.Docker.DockerImageBuildSettings">
+            <summary>
+            Settings for docker build [OPTIONS] PATH | URL | -.
+            Build an image from a Dockerfile
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.AddHost">
+            <summary>
+            --add-host
+            Add a custom host-to-IP mapping (host:ip)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.BuildArg">
+            <summary>
+            --build-arg
+            Set build-time variables
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.CacheFrom">
+            <summary>
+            --cache-from
+            default: 
+            Images to consider as cache sources
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.CgroupParent">
+            <summary>
+            --cgroup-parent
+            Optional parent cgroup for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Compress">
+            <summary>
+            --compress
+            default: false
+            Compress the build context using gzip
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.CpuPeriod">
+            <summary>
+            --cpu-period
+            default: 0
+            Limit the CPU CFS (Completely Fair Scheduler) period
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.CpuQuota">
+            <summary>
+            --cpu-quota
+            default: 0
+            Limit the CPU CFS (Completely Fair Scheduler) quota
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.CpusetCpus">
+            <summary>
+            --cpuset-cpus
+            CPUs in which to allow execution (0-3, 0,1)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.CpusetMems">
+            <summary>
+            --cpuset-mems
+            MEMs in which to allow execution (0-3, 0,1)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.CpuShares">
+            <summary>
+            --cpu-shares, -c
+            default: 0
+            CPU shares (relative weight)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.DisableContentTrust">
+            <summary>
+            --disable-content-trust
+            default: true
+            Skip image verification
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.File">
+            <summary>
+            --file, -f
+            Name of the Dockerfile (Default is &#39;PATH/Dockerfile&#39;)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.ForceRm">
+            <summary>
+            --force-rm
+            default: false
+            Always remove intermediate containers
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Iidfile">
+            <summary>
+            --iidfile
+            Write the image ID to the file
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Isolation">
+            <summary>
+            --isolation
+            Container isolation technology
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Label">
+            <summary>
+            --label
+            Set metadata for an image
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Memory">
+            <summary>
+            --memory, -m
+            Memory limit
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.MemorySwap">
+            <summary>
+            --memory-swap
+            Swap limit equal to memory plus swap: &#39;-1&#39; to enable unlimited swap
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Network">
+            <summary>
+            --network
+            default: default
+            Set the networking mode for the RUN instructions during build
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.NoCache">
+            <summary>
+            --no-cache
+            default: false
+            Do not use cache when building the image
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Platform">
+            <summary>
+            --platform
+            Set platform if server is multi-platform capable
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Pull">
+            <summary>
+            --pull
+            default: false
+            Always attempt to pull a newer version of the image
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Quiet">
+            <summary>
+            --quiet, -q
+            default: false
+            Suppress the build output and print image ID on success
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Rm">
+            <summary>
+            --rm
+            default: true
+            Remove intermediate containers after a successful build
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.SecurityOpt">
+            <summary>
+            --security-opt
+            default: 
+            Security options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.ShmSize">
+            <summary>
+            --shm-size
+            Size of /dev/shm
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Squash">
+            <summary>
+            --squash
+            default: false
+            Squash newly built layers into a single new layer
+            </summary>
+            <remarks>
+            Experimental
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Stream">
+            <summary>
+            --stream
+            default: false
+            Stream attaches to server to negotiate build context
+            </summary>
+            <remarks>
+            Experimental
+            Version: 1.31
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Tag">
+            <summary>
+            --tag, -t
+            Name and optionally a tag in the &#39;name:tag&#39; format
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Target">
+            <summary>
+            --target
+            Set the target build stage to build.
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageBuildSettings.Ulimit">
+            <summary>
+            --ulimit
+            Ulimit options
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerImageLoadSettings">
+            <summary>
+            Settings for docker load [OPTIONS].
+            Load an image from a tar archive or STDIN
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageLoadSettings.Input">
+            <summary>
+            --input, -i
+            Read from tar archive file, instead of STDIN
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageLoadSettings.Quiet">
+            <summary>
+            --quiet, -q
+            default: false
+            Suppress the load output
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerImagePullSettings">
+            <summary>
+            Settings for docker pull [OPTIONS] NAME[:TAG|@DIGEST].
+            Pull an image or a repository from a registry
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImagePullSettings.AllTags">
+            <summary>
+            --all-tags, -a
+            default: false
+            Download all tagged images in the repository
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImagePullSettings.DisableContentTrust">
+            <summary>
+            --disable-content-trust
+            default: true
+            Skip image verification
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImagePullSettings.Platform">
+            <summary>
+            --platform
+            Set platform if server is multi-platform capable
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerImagePushSettings">
+            <summary>
+            Settings for docker push [OPTIONS] NAME[:TAG].
+            Push an image or a repository to a registry
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImagePushSettings.DisableContentTrust">
+            <summary>
+            --disable-content-trust
+            default: true
+            Skip image signing
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerImageRemoveSettings">
+            <summary>
+            Settings for docker rmi [OPTIONS] IMAGE [IMAGE...].
+            Remove one or more images
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageRemoveSettings.Force">
+            <summary>
+            --force, -f
+            default: false
+            Force removal of the image
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageRemoveSettings.NoPrune">
+            <summary>
+            --no-prune
+            default: false
+            Do not delete untagged parents
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerImageSaveSettings">
+            <summary>
+            Settings for docker save [OPTIONS] IMAGE [IMAGE...].
+            Save one or more images to a tar archive (streamed to STDOUT by default)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerImageSaveSettings.Output">
+            <summary>
+            --output, -o
+            Write to a file, instead of STDOUT
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerImageTagSettings">
+            <summary>
+            Settings for docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG].
+            Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.NamespaceDoc">
+            <summary>
+            This namespace contains Docker operations.
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerNetworkConnectSettings">
+            <summary>
+            Settings for docker connect [OPTIONS] NETWORK CONTAINER.
+            Connect a container to a network
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkConnectSettings.Alias">
+            <summary>
+            --alias
+            default: 
+            Add network-scoped alias for the container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkConnectSettings.Ip">
+            <summary>
+            --ip
+            IPv4 address (e.g., 172.30.100.104)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkConnectSettings.Ip6">
+            <summary>
+            --ip6
+            IPv6 address (e.g., 2001:db8::33)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkConnectSettings.Link">
+            <summary>
+            --link
+            Add link to another container
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkConnectSettings.LinkLocalIp">
+            <summary>
+            --link-local-ip
+            default: 
+            Add a link-local address for the container
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerNetworkCreateSettings">
+            <summary>
+            Settings for docker create [OPTIONS] NETWORK.
+            Create a network
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.Attachable">
+            <summary>
+            --attachable
+            default: false
+            Enable manual container attachment
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.AuxAddress">
+            <summary>
+            --aux-address
+            Auxiliary IPv4 or IPv6 addresses used by Network driver
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.ConfigFrom">
+            <summary>
+            --config-from
+            The network from which copying the configuration
+            </summary>
+            <remarks>
+            Version: 1.30
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.ConfigOnly">
+            <summary>
+            --config-only
+            default: false
+            Create a configuration only network
+            </summary>
+            <remarks>
+            Version: 1.30
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.Driver">
+            <summary>
+            --driver, -d
+            default: bridge
+            Driver to manage the Network
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.Gateway">
+            <summary>
+            --gateway
+            default: 
+            IPv4 or IPv6 Gateway for the master subnet
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.Ingress">
+            <summary>
+            --ingress
+            default: false
+            Create swarm routing-mesh network
+            </summary>
+            <remarks>
+            Version: 1.29
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.Internal">
+            <summary>
+            --internal
+            default: false
+            Restrict external access to the network
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.IpamDriver">
+            <summary>
+            --ipam-driver
+            default: default
+            IP Address Management Driver
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.IpamOpt">
+            <summary>
+            --ipam-opt
+            Set IPAM driver specific options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.IpRange">
+            <summary>
+            --ip-range
+            default: 
+            Allocate container ip from a sub-range
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.Ipv6">
+            <summary>
+            --ipv6
+            default: false
+            Enable IPv6 networking
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.Label">
+            <summary>
+            --label
+            Set metadata on a network
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.Opt">
+            <summary>
+            --opt, -o
+            Set driver specific options
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.Scope">
+            <summary>
+            --scope
+            Control the network&#39;s scope
+            </summary>
+            <remarks>
+            Version: 1.30
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkCreateSettings.Subnet">
+            <summary>
+            --subnet
+            default: 
+            Subnet in CIDR format that represents a network segment
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerNetworkDisconnectSettings">
+            <summary>
+            Settings for docker disconnect [OPTIONS] NETWORK CONTAINER.
+            Disconnect a container from a network
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerNetworkDisconnectSettings.Force">
+            <summary>
+            --force, -f
+            default: false
+            Force the container to disconnect from a network
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerNetworkRemoveSettings">
+            <summary>
+            Settings for docker rm NETWORK [NETWORK...].
+            Remove one or more networks
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerRegistryLoginSettings">
+            <summary>
+            Settings for docker login [OPTIONS] [SERVER].
+            Log in to a Docker registry
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerRegistryLoginSettings.Password">
+            <summary>
+            --password, -p
+            Password
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerRegistryLoginSettings.PasswordStdin">
+            <summary>
+            --password-stdin
+            default: false
+            Take the password from stdin
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerRegistryLoginSettings.Username">
+            <summary>
+            --username, -u
+            Username
+            </summary>
+        </member>
+        <member name="M:Cake.Docker.DockerRegistryLoginSettings.CollectSecretProperties">
+            <summary>
+            Adds <see cref="P:Cake.Docker.DockerRegistryLoginSettings.Password"/> to secret properties.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cake.Docker.DockerRegistryLogoutSettings">
+            <summary>
+            Settings for docker logout [SERVER].
+            Logout from a Docker registry
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerSwarmInitSettings">
+            <summary>
+            Settings for docker init [OPTIONS].
+            Initialize a swarm
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.AdvertiseAddr">
+            <summary>
+            --advertise-addr
+            Advertised address (format: &lt;ip|interface&gt;[:port])
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.Autolock">
+            <summary>
+            --autolock
+            default: false
+            Enable manager autolocking (requiring an unlock key to start a stopped manager)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.Availability">
+            <summary>
+            --availability
+            default: active
+            Availability of the node (active|pause|drain)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.CertExpiry">
+            <summary>
+            --cert-expiry
+            default: 90*24*time.Hour
+            Validity period for node certificates (ns|us|ms|s|m|h)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.DataPathAddr">
+            <summary>
+            --data-path-addr
+            Address or interface to use for data path traffic (format: &lt;ip|interface&gt;)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.DispatcherHeartbeat">
+            <summary>
+            --dispatcher-heartbeat
+            default: 5*time.Second
+            Dispatcher heartbeat period (ns|us|ms|s|m|h)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.ExternalCa">
+            <summary>
+            --external-ca
+            Specifications of one or more certificate signing endpoints
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.ForceNewCluster">
+            <summary>
+            --force-new-cluster
+            default: false
+            Force create a new cluster from current state
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.ListenAddr">
+            <summary>
+            --listen-addr
+            Listen address (format: &lt;ip|interface&gt;[:port])
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.MaxSnapshots">
+            <summary>
+            --max-snapshots
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.SnapshotInterval">
+            <summary>
+            --snapshot-interval
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmInitSettings.TaskHistoryLimit">
+            <summary>
+            --task-history-limit
+            default: 5
+            Task history retention limit
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerSwarmJoinSettings">
+            <summary>
+            Settings for docker join [OPTIONS] HOST:PORT.
+            Join a swarm as a node and/or manager
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmJoinSettings.AdvertiseAddr">
+            <summary>
+            --advertise-addr
+            Advertised address (format: &lt;ip|interface&gt;[:port])
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmJoinSettings.Availability">
+            <summary>
+            --availability
+            default: active
+            Availability of the node (active|pause|drain)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmJoinSettings.DataPathAddr">
+            <summary>
+            --data-path-addr
+            Address or interface to use for data path traffic (format: &lt;ip|interface&gt;)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmJoinSettings.ListenAddr">
+            <summary>
+            --listen-addr
+            Listen address (format: &lt;ip|interface&gt;[:port])
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmJoinSettings.Token">
+            <summary>
+            --token
+            Token for entry into the swarm
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerSwarmLeaveSettings">
+            <summary>
+            Settings for docker leave [OPTIONS].
+            Leave the swarm
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmLeaveSettings.Force">
+            <summary>
+            --force, -f
+            default: false
+            Force this node to leave the swarm, ignoring warnings
+            </summary>
+        </member>
+        <member name="T:Cake.Docker.DockerSwarmUpdateSettings">
+            <summary>
+            Settings for docker update [OPTIONS].
+            Update the swarm
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmUpdateSettings.CertExpiry">
+            <summary>
+            --cert-expiry
+            default: 90*24*time.Hour
+            Validity period for node certificates (ns|us|ms|s|m|h)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmUpdateSettings.DispatcherHeartbeat">
+            <summary>
+            --dispatcher-heartbeat
+            default: 5*time.Second
+            Dispatcher heartbeat period (ns|us|ms|s|m|h)
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmUpdateSettings.ExternalCa">
+            <summary>
+            --external-ca
+            Specifications of one or more certificate signing endpoints
+            </summary>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmUpdateSettings.MaxSnapshots">
+            <summary>
+            --max-snapshots
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmUpdateSettings.SnapshotInterval">
+            <summary>
+            --snapshot-interval
+            </summary>
+            <remarks>
+            Version: 1.25
+            </remarks>
+        </member>
+        <member name="P:Cake.Docker.DockerSwarmUpdateSettings.TaskHistoryLimit">
+            <summary>
+            --task-history-limit
+            default: 5
+            Task history retention limit
+            </summary>
+        </member>
+    </members>
+</doc>

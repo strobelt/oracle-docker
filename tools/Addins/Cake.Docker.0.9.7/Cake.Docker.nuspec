@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Cake.Docker</id>
+    <version>0.9.7</version>
+    <authors>Miha Markic</authors>
+    <owners>Miha Markic</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/MihaMarkic/Cake.Docker/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/MihaMarkic/Cake.Docker</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <description>Cake Build addin for Docker.</description>
+    <releaseNotes>See https://github.com/MihaMarkic/Cake.Docker/blob/master/ReleaseNotes.md</releaseNotes>
+    <tags>cake docker cake-build cake-contrib</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+</package>
