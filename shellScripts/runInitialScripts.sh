@@ -11,8 +11,8 @@ source ${BASH_RC}
 function run_script {
   echo "Running script $1"
   sqlplus -S / as sysdba @"$1" 2>&1 >> $LOG_FILE
-  grep -q "\(ORA-\)\|\(OPW-\)|\(SP2-\)" $LOG_FILE
-  if [ $? -ne 1 ];
+  grep -q -P "\(ORA-\)\|\(OPW-\)|SP2-" $LOG_FILE
+  if [ $? -eq 0 ];
   then
     >&2 echo "Failed to run script $1"
     echo "Failed to run script $1" >> $LOG_FILE
