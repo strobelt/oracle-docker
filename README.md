@@ -1,7 +1,9 @@
 # Oracle 12c Docker Official Image with Custom Scripts
 This project is a simple customization for the Oracle 12c official Docker image available [here](https://hub.docker.com/_/oracle-database-enterprise-edition).
+
 Basically *setupDB.sh* is a script taken from inside the oracle container and customized to call another bash script (*runInitialScripts.sh*) that runs every sql file present on the mounted volume folder.
-It is important to note that the scripts will be applied sequentially in alphabetical order, so name them accordingly if execution order is a matter. E.g. 01-DatabaseConfig.sql, 02-InitialSchemas.sql, 03-Seed.sql, etc.
+
+It is important to note that the scripts will be applied sequentially in alphabetical order, so name them accordingly if execution order matters. E.g. 01-DatabaseConfig.sql, 02-InitialSchemas.sql, 03-Seed.sql, etc.
 Also it is important to note that every file that does not have the *.sql* extension will be ignored
 
 ## Usage
